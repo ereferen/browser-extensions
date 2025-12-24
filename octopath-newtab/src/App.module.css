@@ -60,7 +60,11 @@
 }
 
 .bookmarks {
-  margin-top: var(--spacing-lg);
+  position: absolute;
+  left: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: var(--z-content);
 }
 
 .sidebar {
@@ -100,6 +104,12 @@
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
+  .bookmarks {
+    position: static;
+    transform: none;
+    margin-bottom: var(--spacing-lg);
+  }
+
   .sidebar {
     position: static;
     margin-top: var(--spacing-lg);
