@@ -21,7 +21,8 @@
 .header {
   position: absolute;
   top: var(--spacing-lg);
-  left: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: calc(var(--z-content) + 1);
 }
 
 .center {
@@ -70,10 +71,12 @@
 
 .sidebar {
   position: absolute;
-  bottom: var(--spacing-lg);
-  right: var(--spacing-lg);
-  max-width: 500px;
-  max-height: 60vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  padding-top: 140px; /* Space for weather widget */
+  z-index: var(--z-content);
 }
 
 .footer {

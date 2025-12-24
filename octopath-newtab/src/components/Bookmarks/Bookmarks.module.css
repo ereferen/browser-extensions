@@ -20,6 +20,25 @@
   overflow-y: auto;
 }
 
+/* Custom scrollbar for bookmarks */
+.container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: var(--color-accent-gold);
+  border-radius: var(--radius-sm);
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-gold-light);
+}
+
 .title {
   font-family: var(--font-pixel);
   font-size: 12px;
