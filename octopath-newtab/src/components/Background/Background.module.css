@@ -1,0 +1,73 @@
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-background);
+  overflow: hidden;
+}
+
+.gradientLayer {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 80% 50% at 50% 100%,
+      rgba(44, 24, 16, 0.8) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 20% 20%,
+      rgba(139, 105, 20, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 50% 30% at 80% 30%,
+      rgba(201, 162, 39, 0.08) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      #0D0705 0%,
+      #1A0F0A 30%,
+      #2C1810 60%,
+      #1A0F0A 100%
+    );
+}
+
+.patternLayer {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(201, 162, 39, 0.5) 2px,
+      rgba(201, 162, 39, 0.5) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(201, 162, 39, 0.5) 2px,
+      rgba(201, 162, 39, 0.5) 4px
+    );
+  background-size: 4px 4px;
+}
+
+.particlesCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vignetteLayer {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 70% at center,
+    transparent 30%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  pointer-events: none;
+}

@@ -1,0 +1,68 @@
+/* Octopath Traveler HD-2D Color Palette */
+:root {
+  /* Base Colors - Sepia/Warm tones */
+  --color-bg-primary: #1A0F0A;
+  --color-bg-secondary: #2C1810;
+  --color-bg-tertiary: #3D2416;
+
+  /* Text Colors */
+  --color-text-primary: #FFF8E7;
+  --color-text-secondary: #E8D4B8;
+  --color-text-muted: #A89070;
+
+  /* Accent Colors - Gold/Bronze */
+  --color-accent-gold: #C9A227;
+  --color-accent-gold-light: #E8C547;
+  --color-accent-bronze: #8B6914;
+  --color-accent-copper: #D4A574;
+
+  /* UI Frame Colors */
+  --color-frame-outer: #5C4033;
+  --color-frame-inner: #3D2416;
+  --color-frame-highlight: #C9A227;
+
+  /* Status Colors */
+  --color-success: #7CB342;
+  --color-warning: #FFA726;
+  --color-danger: #EF5350;
+
+  /* Gradients */
+  --gradient-bg: linear-gradient(180deg, #1A0F0A 0%, #2C1810 50%, #1A0F0A 100%);
+  --gradient-gold: linear-gradient(135deg, #C9A227 0%, #8B6914 100%);
+  --gradient-frame: linear-gradient(180deg, #5C4033 0%, #3D2416 100%);
+
+  /* Shadows */
+  --shadow-glow: 0 0 20px rgba(201, 162, 39, 0.3);
+  --shadow-glow-strong: 0 0 40px rgba(201, 162, 39, 0.5);
+  --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-panel: 0 4px 20px rgba(0, 0, 0, 0.6);
+
+  /* Typography */
+  --font-pixel: 'DotGothic16', 'Press Start 2P', monospace;
+  --font-ui: 'Noto Sans JP', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Border Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Z-index layers */
+  --z-background: 0;
+  --z-content: 10;
+  --z-overlay: 20;
+  --z-modal: 30;
+  --z-effects: 40;
+}

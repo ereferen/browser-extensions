@@ -1,0 +1,321 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  outline: none;
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow:
+    0 0 10px rgba(201, 162, 39, 0.5),
+    0 2px 0 var(--color-bg-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  max-width: 600px;
+}
+
+/* Bookmark Item */
+.item {
+  --accent-color: var(--color-accent-gold);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: linear-gradient(
+    180deg,
+    rgba(44, 24, 16, 0.8) 0%,
+    rgba(26, 15, 10, 0.9) 100%
+  );
+  border: 2px solid var(--color-frame-outer);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  position: relative;
+  min-width: 120px;
+}
+
+.item:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(201, 162, 39, 0.2);
+}
+
+.item.selected {
+  border-color: var(--color-accent-gold);
+  box-shadow:
+    0 0 0 1px var(--color-accent-gold-light),
+    0 0 30px rgba(201, 162, 39, 0.4);
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-tertiary);
+  border: 2px solid var(--color-frame-outer);
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.item:hover .iconWrapper,
+.item.selected .iconWrapper {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
+}
+
+.favicon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.initial {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel);
+  font-size: 18px;
+  color: var(--color-text-primary);
+}
+
+.itemTitle {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.item:hover .itemTitle,
+.item.selected .itemTitle {
+  color: var(--color-text-primary);
+}
+
+.selectionGlow {
+  position: absolute;
+  inset: -4px;
+  border: 2px solid var(--color-accent-gold);
+  border-radius: var(--radius-lg);
+  animation: pulse 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.6);
+  }
+}
+
+/* Add Button */
+.addButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  min-width: 120px;
+  min-height: 100px;
+  background: transparent;
+  border: 2px dashed var(--color-frame-outer);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.addButton:hover {
+  border-color: var(--color-accent-gold);
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.addIcon {
+  font-size: 24px;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.addText {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.addButton:hover .addIcon,
+.addButton:hover .addText {
+  color: var(--color-accent-gold);
+}
+
+/* Editor Modal */
+.editorBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  backdrop-filter: blur(4px);
+}
+
+.editor {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-tertiary) 0%,
+    var(--color-bg-secondary) 100%
+  );
+  border: 3px solid var(--color-accent-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  min-width: 360px;
+  box-shadow:
+    0 0 0 1px var(--color-frame-outer),
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(201, 162, 39, 0.2);
+}
+
+.editorTitle {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-accent-gold);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 0 0 10px rgba(201, 162, 39, 0.5);
+}
+
+.field {
+  margin-bottom: var(--spacing-md);
+}
+
+.label {
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-bg-primary);
+  border: 2px solid var(--color-frame-outer);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  transition: all var(--transition-fast);
+}
+
+.input:focus {
+  border-color: var(--color-accent-gold);
+  box-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
+  outline: none;
+}
+
+.colorPicker {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.colorOption {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--color-frame-outer);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.colorOption:hover {
+  transform: scale(1.1);
+}
+
+.colorOption.colorSelected {
+  border-color: var(--color-text-primary);
+  box-shadow: 0 0 10px currentColor;
+}
+
+.editorActions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: flex-end;
+  margin-top: var(--spacing-lg);
+}
+
+.saveButton,
+.cancelButton,
+.deleteButton {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.saveButton {
+  background: var(--gradient-gold);
+  border: 2px solid var(--color-accent-gold-light);
+  color: var(--color-bg-primary);
+}
+
+.saveButton:hover {
+  box-shadow: 0 0 15px rgba(201, 162, 39, 0.5);
+}
+
+.cancelButton {
+  background: transparent;
+  border: 2px solid var(--color-frame-outer);
+  color: var(--color-text-secondary);
+}
+
+.cancelButton:hover {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+}
+
+.deleteButton {
+  background: transparent;
+  border: 2px solid var(--color-danger);
+  color: var(--color-danger);
+  margin-right: auto;
+}
+
+.deleteButton:hover {
+  background: var(--color-danger);
+  color: var(--color-text-primary);
+}
