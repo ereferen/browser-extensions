@@ -50,24 +50,16 @@ export function Bookmarks() {
     const maxIndex = Math.min(bookmarks.length, 8) - 1;
 
     switch (e.key) {
-      case 'ArrowRight':
+      case 'ArrowDown':
+        e.preventDefault();
         setSelectedIndex((prev) =>
           prev === null ? 0 : Math.min(prev + 1, maxIndex)
         );
         break;
-      case 'ArrowLeft':
+      case 'ArrowUp':
+        e.preventDefault();
         setSelectedIndex((prev) =>
           prev === null ? maxIndex : Math.max(prev - 1, 0)
-        );
-        break;
-      case 'ArrowDown':
-        setSelectedIndex((prev) =>
-          prev === null ? 0 : Math.min(prev + 4, maxIndex)
-        );
-        break;
-      case 'ArrowUp':
-        setSelectedIndex((prev) =>
-          prev === null ? 0 : Math.max(prev - 4, 0)
         );
         break;
       case 'Enter':
