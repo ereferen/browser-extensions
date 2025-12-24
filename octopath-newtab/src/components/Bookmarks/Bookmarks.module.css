@@ -16,6 +16,8 @@
   box-shadow:
     0 0 0 1px rgba(201, 162, 39, 0.2),
     4px 0 20px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  overflow-y: auto;
 }
 
 .title {

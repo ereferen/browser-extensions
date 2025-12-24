@@ -61,16 +61,19 @@
 
 .bookmarks {
   position: absolute;
-  left: var(--spacing-lg);
-  top: 50%;
-  transform: translateY(-50%);
+  left: 0;
+  top: 0;
+  bottom: 0;
   z-index: var(--z-content);
+  max-width: 300px;
 }
 
 .sidebar {
   position: absolute;
   bottom: var(--spacing-lg);
   right: var(--spacing-lg);
+  max-width: 500px;
+  max-height: 60vh;
 }
 
 .footer {
