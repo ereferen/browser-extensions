@@ -5,9 +5,24 @@
   overflow: hidden;
 }
 
+.mediaLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  filter: blur(1px) brightness(0.6);
+}
+
 .gradientLayer {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background:
     radial-gradient(
       ellipse 80% 50% at 50% 100%,
@@ -36,6 +51,7 @@
 .patternLayer {
   position: absolute;
   inset: 0;
+  z-index: 3;
   opacity: 0.03;
   background-image:
     repeating-linear-gradient(
@@ -58,12 +74,14 @@
 .particlesCanvas {
   position: absolute;
   inset: 0;
+  z-index: 4;
   pointer-events: none;
 }
 
 .vignetteLayer {
   position: absolute;
   inset: 0;
+  z-index: 5;
   background: radial-gradient(
     ellipse 70% 70% at center,
     transparent 30%,

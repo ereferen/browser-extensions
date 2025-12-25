@@ -10,30 +10,31 @@ function App() {
     <div className={styles.app}>
       <Background />
 
-      <main className={styles.main}>
-        <header className={styles.header}>
-          <Weather />
-        </header>
+      <aside className={styles.leftSidebar}>
+        <Bookmarks />
+      </aside>
 
+      <main className={styles.main}>
         <section className={styles.center}>
           <h1 className={styles.title}>Octopath</h1>
           <SearchBar />
         </section>
 
-        <section className={styles.bookmarks}>
-          <Bookmarks />
-        </section>
-
-        <aside className={styles.sidebar}>
-          <NewsFeed />
-        </aside>
+        <footer className={styles.footer}>
+          <span className={styles.hint}>
+            Press <kbd>/</kbd> to search · Right-click bookmark to edit
+          </span>
+        </footer>
       </main>
 
-      <footer className={styles.footer}>
-        <span className={styles.hint}>
-          Press <kbd>/</kbd> to search · Right-click bookmark to edit
-        </span>
-      </footer>
+      <aside className={styles.rightSidebar}>
+        <header className={styles.weatherSection}>
+          <Weather />
+        </header>
+        <section className={styles.newsSection}>
+          <NewsFeed />
+        </section>
+      </aside>
     </div>
   );
 }
