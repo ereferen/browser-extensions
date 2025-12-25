@@ -5,6 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Use very high z-index to ensure modal appears above all other content */
+  z-index: 9999;
   backdrop-filter: blur(8px);
   animation: fadeIn 0.2s ease-out;
 }
