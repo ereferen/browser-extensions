@@ -95,7 +95,23 @@ export function Background() {
 
   return (
     <div className={styles.background}>
-      {/* Base gradient layer */}
+      {/* Background image/video layer */}
+      <div className={styles.mediaLayer}>
+        {/* To add your own Octopath Traveler background:
+            1. Place image/video in public/background/ folder
+            2. Uncomment one of the lines below:
+
+            For image:
+            <img src="/background/octopath.jpg" alt="" className={styles.media} />
+
+            For video:
+            <video autoPlay muted loop playsInline className={styles.media}>
+              <source src="/background/octopath.mp4" type="video/mp4" />
+            </video>
+        */}
+      </div>
+
+      {/* Base gradient layer (overlay on image) */}
       <div className={styles.gradientLayer} />
 
       {/* Pixel art pattern overlay */}

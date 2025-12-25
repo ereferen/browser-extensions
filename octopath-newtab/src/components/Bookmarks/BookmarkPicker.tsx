@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './BookmarkPicker.module.css';
 
 interface ChromeBookmark {
@@ -28,10 +29,12 @@ export function BookmarkPicker({ onSelect, onCancel }: BookmarkPickerProps) {
       if (typeof chrome !== 'undefined' && chrome.bookmarks) {
         const tree = await chrome.bookmarks.getTree();
         setBookmarks(tree);
-        setLoading(false);
+      } else {
+        console.warn('Chrome bookmarks API not available');
       }
     } catch (error) {
       console.error('Failed to load bookmarks:', error);
+    } finally {
       setLoading(false);
     }
   };
@@ -68,17 +71,13 @@ export function BookmarkPicker({ onSelect, onCancel }: BookmarkPickerProps) {
     }
   };
 
-  if (loading) {
-    return (
-      <div className={styles.backdrop}>
-        <div className={styles.modal}>
-          <div className={styles.loading}>Loading bookmarks...</div>
-        </div>
+  const modalContent = loading ? (
+    <div className={styles.backdrop}>
+      <div className={styles.modal}>
+        <div className={styles.loading}>Loading bookmarks...</div>
       </div>
-    );
-  }
-
-  return (
+    </div>
+  ) : (
     <div className={styles.backdrop} onClick={onCancel}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
@@ -132,4 +131,6 @@ export function BookmarkPicker({ onSelect, onCancel }: BookmarkPickerProps) {
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }

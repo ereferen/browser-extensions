@@ -112,9 +112,9 @@ export async function fetchNews(): Promise<NewsItem[]> {
     );
     const storyIds = await topStoriesRes.json();
 
-    // Get first 5 stories
+    // Get first 15 stories
     const stories = await Promise.all(
-      storyIds.slice(0, 5).map(async (id: number) => {
+      storyIds.slice(0, 15).map(async (id: number) => {
         const res = await fetch(
           `https://hacker-news.firebaseio.com/v0/item/${id}.json`
         );

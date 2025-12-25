@@ -37,7 +37,7 @@ export function Weather() {
         } else {
           setWeather(DEMO_WEATHER);
         }
-      } catch (err) {
+      } catch {
         setError('天気情報を取得できません');
         setWeather(DEMO_WEATHER);
       } finally {

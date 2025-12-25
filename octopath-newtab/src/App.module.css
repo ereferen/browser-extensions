@@ -3,7 +3,18 @@
   height: 100vh;
   position: relative;
   display: flex;
+  flex-direction: row;
+}
+
+.leftSidebar {
+  width: 320px;
+  height: 100vh;
+  display: flex;
   flex-direction: column;
+  padding: var(--spacing-lg);
+  position: relative;
+  z-index: var(--z-content);
+  overflow-y: auto;
 }
 
 .main {
@@ -18,10 +29,24 @@
   z-index: var(--z-content);
 }
 
-.header {
-  position: absolute;
-  top: var(--spacing-lg);
-  left: var(--spacing-lg);
+.rightSidebar {
+  width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: var(--z-content);
+  overflow-y: auto;
+}
+
+.weatherSection {
+  padding: var(--spacing-lg);
+}
+
+.newsSection {
+  flex: 1;
+  padding: var(--spacing-lg);
+  padding-top: 0;
 }
 
 .center {
@@ -59,25 +84,8 @@
   }
 }
 
-.bookmarks {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  z-index: var(--z-content);
-  max-width: 300px;
-}
-
-.sidebar {
-  position: absolute;
-  bottom: var(--spacing-lg);
-  right: var(--spacing-lg);
-  max-width: 500px;
-  max-height: 60vh;
-}
-
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: var(--spacing-md);
   left: 50%;
   transform: translateX(-50%);
@@ -107,25 +115,21 @@
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-  .bookmarks {
-    position: static;
-    transform: none;
-    margin-bottom: var(--spacing-lg);
+  .app {
+    flex-direction: column;
   }
 
-  .sidebar {
-    position: static;
-    margin-top: var(--spacing-lg);
-  }
-
-  .header {
-    position: static;
-    margin-bottom: var(--spacing-lg);
+  .leftSidebar,
+  .rightSidebar {
+    width: 100%;
+    height: auto;
+    padding: var(--spacing-md);
   }
 
   .main {
+    height: auto;
     justify-content: flex-start;
-    padding-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
   }
 }
 
